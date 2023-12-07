@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author sanch
  */
-class Message implements Serializable{
+public class Message implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
@@ -20,7 +20,13 @@ class Message implements Serializable{
     private Instant timestamp;
     private String content;
 
-    public Message(String sender, String content) {
+    public Message(String sender) {
+        this.sender = sender;
+        
+        timestamp = Instant.now();
+    }
+    
+    public Message(String sender, String content)   {
         this.sender = sender;
         this.content = content;
         
@@ -32,8 +38,16 @@ class Message implements Serializable{
         return formatter.format(timestamp);
     }
     
+    public String getHeader()   {
+        return String.format("%5s [%17s]: ", sender, getFormattedTimestamp());
+    }
+    
     public String getContent()  {
         return content;
+    }
+    
+    public void setContent(String content)  {
+        this.content = content;
     }
     
     @Override

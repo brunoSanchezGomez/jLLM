@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author sanch
  */
-class Conversation implements Serializable{
+public class Conversation implements Serializable{
     
     private static final long SerialVersionUID = 1L;
     
@@ -23,9 +23,8 @@ class Conversation implements Serializable{
     private Instant startingDate;
     private Instant endDate;
 
-    public Conversation(String llmName, List<Message> messages) {
+    public Conversation(String llmName) {
         this.llmName = llmName;
-        this.messages = messages;
         
         startingDate = Instant.now();
     }

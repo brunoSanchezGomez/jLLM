@@ -15,5 +15,5 @@ public interface IRepository {
     
     public ArrayList<Conversation> importConversations();
     
-    public void exportConversations(List<Conversation> conversations);
+    public boolean exportConversations(List<Conversation> conversations);
 }

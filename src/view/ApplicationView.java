@@ -12,10 +12,10 @@ import controller.Controller;
  */
 public abstract class ApplicationView {
     
-    protected Controller controller;
+    protected Controller c;
     
     public void setController(Controller controller) {
-        this.controller = controller;
+        this.c = controller;
     }
     
     public abstract void showApplicationStart(String initInfo);

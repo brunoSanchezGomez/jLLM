@@ -29,41 +29,66 @@ public class Model implements Serializable{
     private transient File serializationFile;
     
     private List<Conversation> conversations;
+    private Conversation currentConversation;
     
     public Model(IRepository repository, ILLM llm){
         this.repository = repository;
         this.llm = llm;
         
         conversations = new ArrayList<>();
+        currentConversation = new Conversation(llm.getIdentifier());
         serializationFile = Paths.get(System.getProperty("user.home"),
                 "Desktop", "jLLM", "model.bin").toFile();
     }
     
-    public void exportConversations()   {
-        repository.exportConversations(conversations);
+    public boolean exportConversations()   {
+        return repository.exportConversations(conversations);
     }
     
-    public void importConversations()   {
+    public boolean importConversations()   {
         ArrayList<Conversation> importedConversations = repository.importConversations();
         
-        for(Conversation conversation : importedConversations)  {
-            if(!conversations.contains(conversation))   {
-                conversations.add(conversation);
+        if(importedConversations != null)   {
+            for(Conversation conversation : importedConversations)  {
+                if(!conversations.contains(conversation))   {
+                    conversations.add(conversation);
+                }
             }
-        } 
+            return true;
+        }   else  {
+            return false;
+        }
     }
     
-    public boolean addConversation(Conversation conversation) {
-        if (!conversations.contains(conversation)) {
-            conversations.add(conversation);
+    public void addMessageToCurrentConversation(Message message)  {
+        currentConversation.addMessage(message);
+    }
+    
+    public void endCurrentConversation() {
+        currentConversation.endConversation();
+        conversations.add(currentConversation);
+        currentConversation = new Conversation(llm.getIdentifier());
+    }
+    
+    public boolean removeConversation(int index) {
+        if(index < conversations.size()){
+            conversations.remove(index);
             return true;
         }   else    {
             return false;
         }
     }
     
-    public void removeConversation(int index) {
-        conversations.remove(index);
+    public String getResponse(String input) {
+        return llm.speak(input);
+    }
+    
+    public String getConversationHeader(int index)  {
+        return conversations.get(index).getConversationHeader();
+    }
+    
+    public int getConversationsNumber()  {
+        return conversations.size();
     }
     
     public boolean loadAppState() {

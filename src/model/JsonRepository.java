@@ -19,7 +19,7 @@ public class JsonRepository implements IRepository{
     }
 
     @Override
-    public void exportConversations(List<Conversation> conversations) {
+    public boolean exportConversations(List<Conversation> conversations) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
