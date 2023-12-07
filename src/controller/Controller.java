@@ -53,17 +53,25 @@ public class Controller {
         userMessage.setContent(input);
         model.addMessageToCurrentConversation(userMessage);
         
-        String response = model.getResponse(input);
-        model.addMessageToCurrentConversation(new Message("Agent", response));
-        return response;
+        if(!input.equals("/salir")) {
+            String response = model.getResponse(input);
+            Message responseMessage = new Message("Agent", response);
+            model.addMessageToCurrentConversation(responseMessage);
+            return String.format("%s%s", responseMessage.getHeader(),response);
+        }
+        return "";
+    }
+    
+    public String getConversationString(int index)  {
+        return model.getConversationString(index);
     }
 
     public int getConversationsNumber() {
         return model.getConversationsNumber();
     }
 
-    public String getConversationHeader(int index) {
-        return model.getConversationHeader(index);
+    public String getConversationPreview(int index) {
+        return model.getConversationPreview(index);
     }
 
     public boolean removeConversation(int index) {

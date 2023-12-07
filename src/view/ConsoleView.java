@@ -51,7 +51,7 @@ public class ConsoleView extends ApplicationView{
         System.out.println(endInfo);
     }
     
-    public void startConversation() {
+    private void startConversation() {
         System.out.println("\n--- NUEVA CONVERSACION ---");
         String input = null;
         do {
@@ -63,7 +63,7 @@ public class ConsoleView extends ApplicationView{
         System.out.println("Fin de la conversacion.");
     }
     
-    public void CRUDMenu()  {
+    private void CRUDMenu()  {
         int option;
         do {
             System.out.println("\n--- CRUD MENU jLLM ---");
@@ -88,16 +88,21 @@ public class ConsoleView extends ApplicationView{
         } while (option != 3);
     }
     
-    public void listConversations() {
+    private void listConversations() {
         System.out.println("\n--- LISTADO DE CONVERSACIONES ---");
         
         int conversationsNumber = c.getConversationsNumber();
         for(int i = 0; i < conversationsNumber; i++)    {
-            System.out.printf("%d. %s", i, c.getConversationHeader(i));
+            System.out.printf("%d. %s\n", i, c.getConversationPreview(i));
+        }
+        
+        if(yesOrNo("Desea consultar una de las conversaciones? (y/n): ")) {
+            int index = readInt("Introduzca el indice de la conversacion: ");
+            System.out.println(c.getConversationString(index));
         }
     }
     
-    public void removeConversation()    {
+    private void removeConversation()    {
         System.out.println("\n--- ELIMINAR CONVERSACION ---");
         
         int index = readInt("Introduzca el indice de la conversacion que desea eliminar: ");
@@ -109,7 +114,7 @@ public class ConsoleView extends ApplicationView{
         }
     }
     
-    public void exportMenu()    {
+    private void exportMenu()    {
         int option;
         do {
             System.out.println("\n--- CRUD MENU jLLM ---");
@@ -134,7 +139,7 @@ public class ConsoleView extends ApplicationView{
         } while (option != 3);
     }
     
-    public void exportConversations()   {
+    private void exportConversations()   {
         if(c.exportConversations()) {
             System.out.println("Exportacion realizada con exito.");
         }   else    {
@@ -142,7 +147,7 @@ public class ConsoleView extends ApplicationView{
         }
     }
     
-    public void importConversations()   {
+    private void importConversations()   {
         if(c.importConversations()) {
             System.out.println("Importacion realizada con exito.");
         }   else    {

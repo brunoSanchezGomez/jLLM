@@ -18,6 +18,28 @@ public class Phrase {
         this.length = length;
         this.content = content;
     }
+    
+    public Phrase(String type, String content) {
+        this.type = type;
+        this.content = content;
+    }
+    
+    public static Phrase getPhraseFromDelimitedString(String delimitedString, String delimiter) {
+        String[] chunks = delimitedString.split(delimiter);
+        
+        if(chunks.length != 3)  {
+            return null;
+        }
+        
+        try {
+            String type = chunks[0];
+            int length = Integer.parseInt(chunks[1]);
+            String content = chunks[2].trim();
+            return new Phrase(type, length, content);
+        } catch(NumberFormatException e)    {
+            return null;
+        }
+    }
 
     public String getType() {
         return type;

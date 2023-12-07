@@ -83,8 +83,12 @@ public class Model implements Serializable{
         return llm.speak(input);
     }
     
-    public String getConversationHeader(int index)  {
-        return conversations.get(index).getConversationHeader();
+    public String getConversationString(int index)  {
+        return conversations.get(index).toString();
+    }
+    
+    public String getConversationPreview(int index)  {
+        return conversations.get(index).getConversationPreview();
     }
     
     public int getConversationsNumber()  {

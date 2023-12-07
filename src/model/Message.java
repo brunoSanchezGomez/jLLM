@@ -6,6 +6,8 @@ package model;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -33,9 +35,10 @@ public class Message implements Serializable{
         timestamp = Instant.now();
     }
     
-    public String getFormattedTimestamp() {
+    private String getFormattedTimestamp() {
+        ZonedDateTime zonedDateTime = timestamp.atZone(ZoneId.systemDefault());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss");
-        return formatter.format(timestamp);
+        return formatter.format(zonedDateTime);
     }
     
     public String getHeader()   {
@@ -52,7 +55,7 @@ public class Message implements Serializable{
     
     @Override
     public String toString()    {
-        return String.format("%5s [%17s]: %s", sender, getFormattedTimestamp(),content);
+        return String.format("%5s [%17s]: %s\n", sender, getFormattedTimestamp(),content);
     }
     
     @Override
