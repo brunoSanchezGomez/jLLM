@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public interface IRepository {
     
-    public List<Conversation> importConversation();
+    public ArrayList<Conversation> importConversations();
     
-    public void exportConversation(List<Conversation> conversations);
+    public void exportConversations(List<Conversation> conversations);
 }
