@@ -4,6 +4,7 @@
  */
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -19,35 +20,49 @@ import java.util.Objects;
  */
 public class Conversation implements Serializable{
     
-    private static final long SerialVersionUID = 1L;
+    // Atributos
+    
+    private static final long SerialVersionUID = 2L;
     
     private String llmName;
     private List<Message> messages;
-    private Instant startingDate;
-    private Instant endDate;
+    private String startingDate;
+    private String endDate;
+    
+    
+    // Constructores
+    
+    public Conversation()   {
+        // Necesario para Jackson
+    }
 
     public Conversation(String llmName) {
         this.llmName = llmName;
         
         messages = new ArrayList<>();
-        startingDate = Instant.now();
+        startingDate = Instant.now().toString();
     }
+    
+    
+    // Metodos
     
     public void addMessage(Message message)  {
         messages.add(message);
     }
     
     public void endConversation(){
-        endDate = Instant.now();
-    }
+        endDate = Instant.now().toString();
+    }    
     
+    @JsonIgnore
     public String getConversationPreview()  {
-        return String.format("%d | %2d mensajes | %20s",
-                startingDate.getEpochSecond(), messages.size(), messages.get(0).getContent());
+        return String.format("%s | %2d mensajes | %20s",
+                Instant.parse(startingDate).getEpochSecond(), messages.size(), messages.get(0).getContent());
     }
     
+    @JsonIgnore
     private String getFormattedStartingDate()    {
-        ZonedDateTime zonedStartingDate = startingDate.atZone(ZoneId.systemDefault());
+        ZonedDateTime zonedStartingDate = Instant.parse(startingDate).atZone(ZoneId.systemDefault());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss");
         return formatter.format(zonedStartingDate);
     }
@@ -87,5 +102,42 @@ public class Conversation implements Serializable{
         hash = 41 * hash + messages.hashCode();
         return hash;
     }
+    
+    
+    // Getters y setters
+
+    public String getLlmName() {
+        return llmName;
+    }
+
+    public void setLlmName(String llmName) {
+        this.llmName = llmName;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public String getStartingDate() {
+        return startingDate;
+    }
+
+    public void setStartingDate(String startingDate) {
+        this.startingDate = startingDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+    
+    
     
 }
