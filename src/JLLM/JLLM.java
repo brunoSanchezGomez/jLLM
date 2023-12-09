@@ -24,14 +24,24 @@ public class JLLM {
         ILLM llm;
         ApplicationView view;
         
-        if(args.length == 3)    {
-            repository = getRepository(args[0]);
-            llm = getLLM(args[1]);
-            view = getView(args[2]);
-        }   else  {
-            repository = new JsonRepository();
-            llm = new MemoryLLM();
-            view = new ConsoleView();
+        switch (args.length)    {
+            case 3:
+                repository = getRepository(args[0]);
+                llm = getLLM(args[1]);
+                view = getView(args[2]);
+                break;
+                
+            case 4:
+                repository = getRepository(args[0]);
+                llm = getLLM(args[1], args[4]);
+                view = getView(args[2]);
+                break;
+                
+            default:
+                repository = new JsonRepository();
+                llm = new MemoryLLM();
+                view = new ConsoleView();
+                break;
         }
         
         Model model = new Model(repository, llm);
@@ -63,8 +73,22 @@ public class JLLM {
             case "csv":
                 return new CSVLLM();
                 
+            default:
+                return new MemoryLLM();
+        }
+    }
+    
+    
+    public static ILLM getLLM(String arg, String host){
+        switch  (arg)    {
+            case "fake":
+                return new MemoryLLM();
+                
+            case "csv":
+                return new CSVLLM();
+                
             case "smart":
-                return new SmartLLM();
+                return new SmartLLM(host);
                 
             default:
                 return new MemoryLLM();
