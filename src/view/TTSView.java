@@ -78,7 +78,7 @@ public class TTSView extends ApplicationView{
         
         int option;
         do {
-            System.out.println("\n--- MENÚ jLLM ---");
+            System.out.println("\n--- MENU jLLM ---");
             narrate("MENÚ jLLM", 750);
             System.out.println("1. Nueva conversacion");
             narrate("1. Nueva conversación", -500);
@@ -194,7 +194,7 @@ public class TTSView extends ApplicationView{
         String conversationPreview;
         if(conversationsNumber > 0) {
             for(int i = 0; i < conversationsNumber; i++)    {
-                conversationPreview = String.format("%d. %s\n", i, c.getConversationPreview(i));
+                conversationPreview = String.format("%d. %s\n", i+1, c.getConversationPreview(i));
                 System.out.printf(conversationPreview);
                 narrate(conversationPreview, conversationPreview.length());
             }
@@ -204,7 +204,7 @@ public class TTSView extends ApplicationView{
                 narrate("Introduzca el índice de la conversacion: ");
                 int index = readInt("Introduzca el indice de la conversacion: ");
                 
-                String conversationString = c.getConversationString(index);
+                String conversationString = c.getConversationString(index-1);
                 System.out.println("\n" + conversationString);
                 narrate(conversationString, conversationString.length()*120);
             }
@@ -221,7 +221,7 @@ public class TTSView extends ApplicationView{
         narrate("Introduzca el índice de la conversacion que desea eliminar: ");
         int index = readInt("Introduzca el indice de la conversación que desea eliminar: ");
         
-        if(c.removeConversation(index)) {
+        if(c.removeConversation(index-1)) {
             System.out.println("Conversacion eliminada con exito.");
             narrate("Conversacion eliminada con éxito.");
         }   else    {

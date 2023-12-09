@@ -25,7 +25,7 @@ public class ConsoleView extends ApplicationView{
             System.out.println("2. Menu CRUD");
             System.out.println("3. Menu exportacion");
             System.out.println("4. Salir");
-            option = readInt("Ingrese una opción: ");
+            option = readInt("Ingrese una opcion: ");
 
             switch (option) {
                 case 1:
@@ -41,7 +41,7 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
             }
         } while (option != 4);
     }
@@ -70,7 +70,7 @@ public class ConsoleView extends ApplicationView{
             System.out.println("1. Listar conversaciones");
             System.out.println("2. Eliminar conversacion");
             System.out.println("3. Salir");
-            option = readInt("Ingrese una opción: ");
+            option = readInt("Ingrese una opcion: ");
 
             switch (option) {
                 case 1:
@@ -83,7 +83,7 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
             }
         } while (option != 3);
     }
@@ -95,12 +95,12 @@ public class ConsoleView extends ApplicationView{
         
         if(conversationsNumber > 0) {
             for(int i = 0; i < conversationsNumber; i++)    {
-                System.out.printf("%d. %s\n", i, c.getConversationPreview(i));
+                System.out.printf("%d. %s\n", i+1, c.getConversationPreview(i));
             }
 
             if(yesOrNo("\nDesea consultar una de las conversaciones")) {
                 int index = readInt("Introduzca el indice de la conversacion: ");
-                System.out.println("\n" + c.getConversationString(index));
+                System.out.println("\n" + c.getConversationString(index-1));
             }
         }   else    {
             System.out.println("\nTodavia no hay ninguna conversacion.");
@@ -112,7 +112,7 @@ public class ConsoleView extends ApplicationView{
         
         int index = readInt("Introduzca el indice de la conversacion que desea eliminar: ");
         
-        if(c.removeConversation(index)) {
+        if(c.removeConversation(index-1)) {
             System.out.println("Conversacion eliminada con exito.");
         }   else    {
             System.out.println("No existe una conversacion con ese indice.");
@@ -126,7 +126,7 @@ public class ConsoleView extends ApplicationView{
             System.out.println("1. Exportar conversaciones");
             System.out.println("2. Importar conversaciones");
             System.out.println("3. Salir");
-            option = readInt("Ingrese una opción: ");
+            option = readInt("Ingrese una opcion: ");
 
             switch (option) {
                 case 1:
@@ -139,7 +139,7 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
             }
         } while (option != 3);
     }
