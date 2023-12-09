@@ -92,13 +92,18 @@ public class ConsoleView extends ApplicationView{
         System.out.println("\n--- LISTADO DE CONVERSACIONES ---");
         
         int conversationsNumber = c.getConversationsNumber();
-        for(int i = 0; i < conversationsNumber; i++)    {
-            System.out.printf("%d. %s\n", i, c.getConversationPreview(i));
-        }
         
-        if(yesOrNo("\nDesea consultar una de las conversaciones? (y/n): ")) {
-            int index = readInt("Introduzca el indice de la conversacion: ");
-            System.out.println("\n" + c.getConversationString(index));
+        if(conversationsNumber > 0) {
+            for(int i = 0; i < conversationsNumber; i++)    {
+                System.out.printf("%d. %s\n", i, c.getConversationPreview(i));
+            }
+
+            if(yesOrNo("\nDesea consultar una de las conversaciones")) {
+                int index = readInt("Introduzca el indice de la conversacion: ");
+                System.out.println("\n" + c.getConversationString(index));
+            }
+        }   else    {
+            System.out.println("\nTodavia no hay ninguna conversacion.");
         }
     }
     
@@ -119,7 +124,7 @@ public class ConsoleView extends ApplicationView{
         do {
             System.out.println("\n--- CRUD MENU jLLM ---");
             System.out.println("1. Exportar conversaciones");
-            System.out.println("2. Importar conversacion");
+            System.out.println("2. Importar conversaciones");
             System.out.println("3. Salir");
             option = readInt("Ingrese una opción: ");
 
