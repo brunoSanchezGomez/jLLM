@@ -33,7 +33,7 @@ public class JLLM {
                 
             case 4:
                 repository = getRepository(args[0]);
-                llm = getLLM(args[1], args[4]);
+                llm = getLLM(args[1], args[3]);
                 view = getView(args[2]);
                 break;
                 
