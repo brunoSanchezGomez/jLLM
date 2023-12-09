@@ -29,9 +29,9 @@ public class Controller {
     public void initAplication() {
         
         if(model.loadAppState())    {
-            view.showApplicationStart("Cargado estado anterior con exito");
+            view.showApplicationStart("Cargado estado anterior con éxito.");
         }   else    {
-            view.showApplicationStart("No se encontró fichero para carga del programa");
+            view.showApplicationStart("No se encontró fichero para carga del programa.");
         }
         
         view.showMainMenu();
