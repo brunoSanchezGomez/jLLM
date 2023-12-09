@@ -37,7 +37,8 @@ public class SmartLLM implements ILLM{
     @Override
     public String speak(String input) {
         try {
-            return ollamaAPI.ask("minstral", input);
+            String response = ollamaAPI.ask("mistral", input);
+            return response;
         } catch (OllamaBaseException | IOException | InterruptedException ex) {
             System.err.println("Error al acceder a ollamaAPI: " + ex.getMessage());
             return "";
