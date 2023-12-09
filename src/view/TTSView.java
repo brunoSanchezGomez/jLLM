@@ -41,7 +41,7 @@ public class TTSView extends ApplicationView{
             speechEngine.setVoice(voice.getName());
             
         } catch (SpeechEngineCreationException ex) {
-            System.err.println("Error al crear el motor de narracion por voz: " + ex.getMessage());
+            System.err.println("Error al crear el motor de narración por voz: " + ex.getMessage());
         }
     }
     
@@ -52,7 +52,7 @@ public class TTSView extends ApplicationView{
         }   catch(IOException ex)   {
             System.err.println("Error al narrar por voz: " + ex.getMessage());
         }   catch (InterruptedException ex) {
-            System.err.println("Interrupcion inesperada durante la narracion: " + ex.getMessage());
+            System.err.println("Interrupción inesperada durante la narración: " + ex.getMessage());
         }
     }
     
@@ -63,7 +63,7 @@ public class TTSView extends ApplicationView{
         }   catch(IOException ex)   {
             System.err.println("Error al narrar por voz: " + ex.getMessage());
         }   catch (InterruptedException ex) {
-            System.err.println("Interrupcion inesperada durante la narracion: " + ex.getMessage());
+            System.err.println("Interrupción inesperada durante la narración: " + ex.getMessage());
         }
     }
     
@@ -78,19 +78,19 @@ public class TTSView extends ApplicationView{
         
         int option;
         do {
-            System.out.println("\n--- MENU jLLM ---");
+            System.out.println("\n--- MENÚ jLLM ---");
             narrate("MENÚ jLLM", 750);
-            System.out.println("1. Nueva conversacion");
+            System.out.println("1. Nueva conversación");
             narrate("1. Nueva conversación", -500);
-            System.out.println("2. Menu CRUD");
+            System.out.println("2. Menú CRUD");
             narrate("2. Menú CRUD");
-            System.out.println("3. Menu exportacion");
+            System.out.println("3. Menú exportación");
             narrate("3. Menú exportacion");
             System.out.println("4. Salir");
             narrate("4. Salir");
             
             narrate("Ingrese una opción: ", -750);
-            option = readInt("Ingrese una opcion: ");
+            option = readInt("Ingrese una opción: ");
 
             switch (option) {
                 case 1:
@@ -111,7 +111,7 @@ public class TTSView extends ApplicationView{
                     break;
                     
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
                     narrate("Opción no válida.");
                     break;
             }
@@ -126,7 +126,7 @@ public class TTSView extends ApplicationView{
     }
     
     private void startConversation() {
-        System.out.println("\n--- NUEVA CONVERSACION ---");
+        System.out.println("\n--- NUEVA CONVERSACIÓN ---");
         
         narrate("NUEVA CONVERSACIÓN");
         
@@ -143,7 +143,7 @@ public class TTSView extends ApplicationView{
         } while (!input.equals("/salir"));
         
         c.endConversation();
-        System.out.println("Fin de la conversacion.");
+        System.out.println("Fin de la conversación.");
         
         narrate("Fin de la conversación.");
     }
@@ -151,16 +151,16 @@ public class TTSView extends ApplicationView{
     private void CRUDMenu()  {
         int option;
         do {
-            System.out.println("\n--- CRUD MENU jLLM ---");
-            narrate("CRUD MENÚ jLLM", 1000);
+            System.out.println("\n--- MENÚ CRUD jLLM ---");
+            narrate("MENÚ CRUD jLLM", 1000);
             System.out.println("1. Listar conversaciones");
             narrate("1. Listar conversaciones");
-            System.out.println("2. Eliminar conversacion");
+            System.out.println("2. Eliminar conversación");
             narrate("2. Eliminar conversación");
             System.out.println("3. Salir");
             narrate("3. Salir");
             
-            narrate("Ingrese una opcion: ", -750);
+            narrate("Ingrese una opción: ", -750);
             option = readInt("Ingrese una opción: ");
 
             switch (option) {
@@ -178,7 +178,7 @@ public class TTSView extends ApplicationView{
                     break;
                     
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
                     narrate("Opción no válida.");
                     break;
             }
@@ -201,15 +201,15 @@ public class TTSView extends ApplicationView{
 
             narrate("Desea consultar una de las conversaciones (y/n)?");
             if(yesOrNo("\nDesea consultar una de las conversaciones")) {
-                narrate("Introduzca el índice de la conversacion: ");
-                int index = readInt("Introduzca el indice de la conversacion: ");
+                narrate("Introduzca el índice de la conversación: ");
+                int index = readInt("Introduzca el índice de la conversación: ");
                 
                 String conversationString = c.getConversationString(index-1);
                 System.out.println("\n" + conversationString);
                 narrate(conversationString, conversationString.length()*120);
             }
         }   else    {
-            System.out.println("\nTodavia no hay ninguna conversacion.");
+            System.out.println("\nTodavía no hay ninguna conversación.");
             narrate("Todavía no hay ninguna conversación.");
         }
     }
@@ -218,14 +218,14 @@ public class TTSView extends ApplicationView{
         System.out.println("\n--- ELIMINAR CONVERSACION ---");
         narrate("ELIMINAR CONVERSACION");
         
-        narrate("Introduzca el índice de la conversacion que desea eliminar: ");
-        int index = readInt("Introduzca el indice de la conversación que desea eliminar: ");
+        narrate("Introduzca el índice de la conversación que desea eliminar: ");
+        int index = readInt("Introduzca el índice de la conversación que desea eliminar: ");
         
         if(c.removeConversation(index-1)) {
-            System.out.println("Conversacion eliminada con exito.");
-            narrate("Conversacion eliminada con éxito.");
+            System.out.println("Conversación eliminada con éxito.");
+            narrate("Conversación eliminada con éxito.");
         }   else    {
-            System.out.println("No existe una conversacion con ese indice.");
+            System.out.println("No existe una conversación con ese índice.");
             narrate("No existe una conversación con ese índice.");
         }
     }
@@ -233,8 +233,8 @@ public class TTSView extends ApplicationView{
     private void exportMenu()    {
         int option;
         do {
-            System.out.println("\n--- CRUD MENU jLLM ---");
-            narrate("CRUD MENÚ jLLM", 750);
+            System.out.println("\n--- MENÚ EXPORTACIÓN jLLM ---");
+            narrate("MENÚ EXPORTACIÓN jLLM", 750);
             System.out.println("1. Exportar conversaciones");
             narrate("1. Exportar conversaciones");
             System.out.println("2. Importar conversaciones");
@@ -242,7 +242,7 @@ public class TTSView extends ApplicationView{
             System.out.println("3. Salir");
             narrate("3. Salir");
             
-            narrate("Ingrese una opcion: ", -750);
+            narrate("Ingrese una opción: ", -750);
             option = readInt("Ingrese una opción: ");
 
             switch (option) {
@@ -257,7 +257,7 @@ public class TTSView extends ApplicationView{
                     narrate("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
                     narrate("Opción no válida.");
                     break;
             }
@@ -266,7 +266,7 @@ public class TTSView extends ApplicationView{
     
     private void exportConversations()   {
         if(c.exportConversations()) {
-            System.out.println("Exportacion realizada con exito.");
+            System.out.println("Exportación realizada con éxito.");
             narrate("Exportación realizada con éxito.");
         }   else    {
             System.out.println("Error al exportar.");
@@ -276,7 +276,7 @@ public class TTSView extends ApplicationView{
     
     private void importConversations()   {
         if(c.importConversations()) {
-            System.out.println("Importacion realizada con exito.");
+            System.out.println("Importación realizada con éxito.");
             narrate("Importación realizada con éxito.");
         }   else    {
             System.out.println("Error al importar.");

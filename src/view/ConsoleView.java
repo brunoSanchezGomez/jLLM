@@ -20,12 +20,12 @@ public class ConsoleView extends ApplicationView{
     public void showMainMenu() {
         int option;
         do {
-            System.out.println("\n--- MENU jLLM ---");
-            System.out.println("1. Nueva conversacion");
-            System.out.println("2. Menu CRUD");
-            System.out.println("3. Menu exportacion");
+            System.out.println("\n--- MENÚ jLLM ---");
+            System.out.println("1. Nueva conversación");
+            System.out.println("2. Menú CRUD");
+            System.out.println("3. Menú exportación");
             System.out.println("4. Salir");
-            option = readInt("Ingrese una opcion: ");
+            option = readInt("Ingrese una opción: ");
 
             switch (option) {
                 case 1:
@@ -41,7 +41,7 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
             }
         } while (option != 4);
     }
@@ -52,7 +52,7 @@ public class ConsoleView extends ApplicationView{
     }
     
     private void startConversation() {
-        System.out.println("\n--- NUEVA CONVERSACION ---");
+        System.out.println("\n--- NUEVA CONVERSACIÓN ---");
         String input;
         do {
             input = readString_ne(c.startMessage());
@@ -60,17 +60,17 @@ public class ConsoleView extends ApplicationView{
         } while (!input.equals("/salir"));
         
         c.endConversation();
-        System.out.println("Fin de la conversacion.");
+        System.out.println("Fin de la conversación.");
     }
     
     private void CRUDMenu()  {
         int option;
         do {
-            System.out.println("\n--- CRUD MENU jLLM ---");
+            System.out.println("\n--- MENÚ CRUD jLLM ---");
             System.out.println("1. Listar conversaciones");
-            System.out.println("2. Eliminar conversacion");
+            System.out.println("2. Eliminar conversación");
             System.out.println("3. Salir");
-            option = readInt("Ingrese una opcion: ");
+            option = readInt("Ingrese una opción: ");
 
             switch (option) {
                 case 1:
@@ -83,7 +83,7 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
             }
         } while (option != 3);
     }
@@ -99,34 +99,34 @@ public class ConsoleView extends ApplicationView{
             }
 
             if(yesOrNo("\nDesea consultar una de las conversaciones")) {
-                int index = readInt("Introduzca el indice de la conversacion: ");
+                int index = readInt("Introduzca el índice de la conversación: ");
                 System.out.println("\n" + c.getConversationString(index-1));
             }
         }   else    {
-            System.out.println("\nTodavia no hay ninguna conversacion.");
+            System.out.println("\nTodavía no hay ninguna conversación.");
         }
     }
     
     private void removeConversation()    {
-        System.out.println("\n--- ELIMINAR CONVERSACION ---");
+        System.out.println("\n--- ELIMINAR CONVERSACIÓN ---");
         
-        int index = readInt("Introduzca el indice de la conversacion que desea eliminar: ");
+        int index = readInt("Introduzca el índice de la conversación que desea eliminar: ");
         
         if(c.removeConversation(index-1)) {
-            System.out.println("Conversacion eliminada con exito.");
+            System.out.println("Conversación eliminada con éxito.");
         }   else    {
-            System.out.println("No existe una conversacion con ese indice.");
+            System.out.println("No existe una conversación con ese índice.");
         }
     }
     
     private void exportMenu()    {
         int option;
         do {
-            System.out.println("\n--- CRUD MENU jLLM ---");
+            System.out.println("\n--- MENÚ EXPORTACIÓN jLLM ---");
             System.out.println("1. Exportar conversaciones");
             System.out.println("2. Importar conversaciones");
             System.out.println("3. Salir");
-            option = readInt("Ingrese una opcion: ");
+            option = readInt("Ingrese una opción: ");
 
             switch (option) {
                 case 1:
@@ -139,14 +139,14 @@ public class ConsoleView extends ApplicationView{
                     System.out.println("Saliendo...");
                     break;
                 default:
-                    System.out.println("Opcion no valida.");
+                    System.out.println("Opción no válida.");
             }
         } while (option != 3);
     }
     
     private void exportConversations()   {
         if(c.exportConversations()) {
-            System.out.println("Exportacion realizada con exito.");
+            System.out.println("Exportación realizada con éxito.");
         }   else    {
             System.out.println("Error al exportar.");
         }
@@ -154,7 +154,7 @@ public class ConsoleView extends ApplicationView{
     
     private void importConversations()   {
         if(c.importConversations()) {
-            System.out.println("Importacion realizada con exito.");
+            System.out.println("Importación realizada con éxito.");
         }   else    {
             System.out.println("Error al importar.");
         }
