@@ -37,7 +37,7 @@ public class Model implements Serializable{
         conversations = new ArrayList<>();
         currentConversation = new Conversation(llm.getIdentifier());
         serializationFile = Paths.get(System.getProperty("user.home"),
-                "Desktop", "jLLM", "model.bin").toFile();
+                "Desktop", "jLLM", "jLLM.bin").toFile();
     }
     
     public boolean exportConversations()   {

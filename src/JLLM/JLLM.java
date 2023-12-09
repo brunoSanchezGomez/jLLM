@@ -1,4 +1,4 @@
-package practicafinaljllm;
+package JLLM;
 
 import controller.Controller;
 import model.CSVLLM;
@@ -17,7 +17,7 @@ import view.TTSView;
  *
  * @author sanch
  */
-public class PracticaFinalJLLM {
+public class JLLM {
     
     public static void main(String[] args) {
         IRepository repository;
