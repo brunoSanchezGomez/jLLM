@@ -78,7 +78,7 @@ public class TTSView extends ApplicationView{
         
         int option;
         do {
-            System.out.println("\n--- MENÚ jLLM ---");
+            System.out.println("\n--- MENU jLLM ---");
             narrate("MENÚ jLLM", 750);
             System.out.println("1. Nueva conversación");
             narrate("1. Nueva conversación", -500);
@@ -126,7 +126,7 @@ public class TTSView extends ApplicationView{
     }
     
     private void startConversation() {
-        System.out.println("\n--- NUEVA CONVERSACIÓN ---");
+        System.out.println("\n--- NUEVA CONVERSACION ---");
         
         narrate("NUEVA CONVERSACIÓN");
         
@@ -151,7 +151,7 @@ public class TTSView extends ApplicationView{
     private void CRUDMenu()  {
         int option;
         do {
-            System.out.println("\n--- MENÚ CRUD jLLM ---");
+            System.out.println("\n--- MENU CRUD jLLM ---");
             narrate("MENÚ CRUD jLLM", 1000);
             System.out.println("1. Listar conversaciones");
             narrate("1. Listar conversaciones");
@@ -233,7 +233,7 @@ public class TTSView extends ApplicationView{
     private void exportMenu()    {
         int option;
         do {
-            System.out.println("\n--- MENÚ EXPORTACIÓN jLLM ---");
+            System.out.println("\n--- MENU EXPORTACION jLLM ---");
             narrate("MENÚ EXPORTACIÓN jLLM", 750);
             System.out.println("1. Exportar conversaciones");
             narrate("1. Exportar conversaciones");

@@ -20,7 +20,7 @@ public class ConsoleView extends ApplicationView{
     public void showMainMenu() {
         int option;
         do {
-            System.out.println("\n--- MENÚ jLLM ---");
+            System.out.println("\n--- MENU jLLM ---");
             System.out.println("1. Nueva conversación");
             System.out.println("2. Menú CRUD");
             System.out.println("3. Menú exportación");
@@ -52,7 +52,7 @@ public class ConsoleView extends ApplicationView{
     }
     
     private void startConversation() {
-        System.out.println("\n--- NUEVA CONVERSACIÓN ---");
+        System.out.println("\n--- NUEVA CONVERSACION ---");
         String input;
         do {
             input = readString_ne(c.startMessage());
@@ -66,7 +66,7 @@ public class ConsoleView extends ApplicationView{
     private void CRUDMenu()  {
         int option;
         do {
-            System.out.println("\n--- MENÚ CRUD jLLM ---");
+            System.out.println("\n--- MENU CRUD jLLM ---");
             System.out.println("1. Listar conversaciones");
             System.out.println("2. Eliminar conversación");
             System.out.println("3. Salir");
@@ -108,7 +108,7 @@ public class ConsoleView extends ApplicationView{
     }
     
     private void removeConversation()    {
-        System.out.println("\n--- ELIMINAR CONVERSACIÓN ---");
+        System.out.println("\n--- ELIMINAR CONVERSACION ---");
         
         int index = readInt("Introduzca el índice de la conversación que desea eliminar: ");
         
@@ -122,7 +122,7 @@ public class ConsoleView extends ApplicationView{
     private void exportMenu()    {
         int option;
         do {
-            System.out.println("\n--- MENÚ EXPORTACIÓN jLLM ---");
+            System.out.println("\n--- MENU EXPORTACION jLLM ---");
             System.out.println("1. Exportar conversaciones");
             System.out.println("2. Importar conversaciones");
             System.out.println("3. Salir");
