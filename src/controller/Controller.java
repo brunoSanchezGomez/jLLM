@@ -4,7 +4,6 @@
  */
 package controller;
 
-import java.util.List;
 import model.Model;
 import model.Message;
 import view.ApplicationView;
@@ -15,8 +14,8 @@ import view.ApplicationView;
  */
 public class Controller {
     
-    private Model model;
-    private ApplicationView view;
+    private final Model model;
+    private final ApplicationView view;
     
     private Message userMessage;
     

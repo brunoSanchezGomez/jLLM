@@ -27,7 +27,7 @@ public class CSVLLM implements ILLM{
         phrasePool = new ArrayList<>();
         
         Path CSVPath = Paths.get(System.getProperty("user.home"), "Desktop", "jLLM", "phrases.csv");
-        List<String> lines = null;
+        List<String> lines;
         
         try {
             lines = Files.readAllLines(CSVPath, StandardCharsets.UTF_8);

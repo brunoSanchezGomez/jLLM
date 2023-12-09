@@ -53,7 +53,7 @@ public class ConsoleView extends ApplicationView{
     
     private void startConversation() {
         System.out.println("\n--- NUEVA CONVERSACION ---");
-        String input = null;
+        String input;
         do {
             input = readString_ne(c.startMessage());
             System.out.println(c.getResponse(input));
@@ -96,9 +96,9 @@ public class ConsoleView extends ApplicationView{
             System.out.printf("%d. %s\n", i, c.getConversationPreview(i));
         }
         
-        if(yesOrNo("Desea consultar una de las conversaciones? (y/n): ")) {
+        if(yesOrNo("\nDesea consultar una de las conversaciones? (y/n): ")) {
             int index = readInt("Introduzca el indice de la conversacion: ");
-            System.out.println(c.getConversationString(index));
+            System.out.println("\n" + c.getConversationString(index));
         }
     }
     

@@ -12,7 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +23,9 @@ public class Model implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private transient IRepository repository;
-    private transient ILLM llm;
-    private transient File serializationFile;
+    private final transient IRepository repository;
+    private final transient ILLM llm;
+    private final transient File serializationFile;
     
     private List<Conversation> conversations;
     private Conversation currentConversation;

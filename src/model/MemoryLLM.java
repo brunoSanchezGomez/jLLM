@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class MemoryLLM implements ILLM{
     
-    private List<Phrase> phrasePool;
+    private final List<Phrase> phrasePool;
 
     public MemoryLLM()  {
         phrasePool = new ArrayList<>();
