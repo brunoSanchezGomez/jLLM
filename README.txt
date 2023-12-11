@@ -1,6 +1,6 @@
 # jLLM
 
-Para iniciar la aplicación, acceda en la Terminal a la carpeta "dist" del programa e introduzca:
+Para iniciar la aplicación, acceda en la Terminal a la carpeta del programa (en la que se encuentra este README) e introduzca:
 
 java -jar jLLM.jar [REPOSITORY] [MODEL] [VIEW] [URL (opcional)]
 
